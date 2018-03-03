@@ -14,7 +14,7 @@ import pandas as pd
 
 #generate game data
 def play_hivemind(N_buckets, N_turns):
-    bucket_yield_mean = np.arange(N_buckets)/10.0 
+    bucket_yield_mean = np.linspace(0.0, 0.005, num=N_buckets)
     bucket_yield_sigma = 2*bucket_yield_mean
     bucket_yields_list = []
     best_bucket_list = []
@@ -42,19 +42,29 @@ def mlp_classifier(N_inputs, N_middle_layer, N_outputs, dropout_fraction):
     model.compile(loss='categorical_crossentropy', optimizer='adam')
     return model
 
-#
-def compute_net_yields(bucket_yields, best_bucket_probability):
+#compute per-turn bucket yields, and compounded net yield
+def compute_net_gains(bucket_yields, model):
     #generate dataframe of yields, probabilities, and net 
     N_buckets = bucket_yields.shape[1]
-    cols = ['yield' + str(idx) for idx in range(N_buckets)]
-    net_yields = pd.DataFrame(bucket_yields, columns=cols)
-    net_yields['net'] = 0.0
-    #best_bucket_probability = model.predict(bucket_yields)
+    cols = ['gain' + str(idx) for idx in range(N_buckets)]
+    net_gains = pd.DataFrame(bucket_yields, columns=cols)
+    net_gains['net_gain'] = 1.0
+    best_bucket_probability = model.predict(bucket_yields)
     for idx in range(N_buckets):
         prob_col = 'prob' + str(idx)
-        net_yields[prob_col] = best_bucket_probability[:, idx]
-        yield_col = 'yield' + str(idx)
-        net_yields['net'] += net_yields[yield_col]*net_yields[prob_col]
-    cols = [col for col in net_yields.columns if (col != 'net')] + ['net']
-    net_yields = net_yields[cols]
-    return net_yields
+        net_gains[prob_col] = best_bucket_probability[:, idx]
+        gain_col = 'gain' + str(idx)
+        net_gains['net_gain'] += net_gains[gain_col]*net_gains[prob_col]
+    net_gains['compound_gain'] = net_gains['net_gain'].copy()
+    for idx in range(len(net_gains)):
+        if (idx > 0):
+            net_gains.loc[idx, 'compound_gain'] = \
+                net_gains.loc[idx, 'net_gain']*net_gains.loc[idx-1, 'compound_gain']
+    net_gains['turn'] = net_gains.index
+    cols = net_gains.columns.tolist()
+    cols.remove('turn')
+    cols.remove('net_gain')
+    cols.remove('compound_gain')
+    cols = ['turn'] + cols + ['net_gain', 'compound_gain']
+    net_gains = net_gains[cols]
+    return net_gains, best_bucket_probability

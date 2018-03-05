@@ -13,9 +13,9 @@ import numpy as np
 import pandas as pd
 
 #generate game data
-def make_bucket_yields(N_buckets, N_turns, lag):
-    bucket_yield_mean = np.linspace(0.0, 0.001, num=N_buckets)
-    bucket_yield_sigma = 0.5*bucket_yield_mean
+def make_bucket_yields(N_buckets, N_turns, SNR, lag):
+    bucket_yield_mean = np.linspace(0.0, 0.005, num=N_buckets)
+    bucket_yield_sigma = (1.0/SNR)*bucket_yield_mean
     bucket_yields_list = []
     best_bucket_list = []
     for idx in range(N_turns):

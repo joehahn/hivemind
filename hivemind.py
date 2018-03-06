@@ -23,11 +23,11 @@ def make_bucket_yields(N_buckets, N_turns, SNR, lag):
     for idx in range(N_turns):
         weather = 'nominal'
         loc = bucket_yield_mean.copy()
-        if (np.random.uniform(low=0.0, high=1.0) < 0.05):
+        if (np.random.uniform(low=0.0, high=1.0) < 0.1):
             #upper two thirds of buckets are bad during story weather
             weather = 'stormy'
             loc[one_third:] *= -1.25
-        if (np.random.uniform(low=0.0, high=1.0) < 0.05):
+        if (np.random.uniform(low=0.0, high=1.0) < 0.1):
             #upper one thirds of buckets are worse during hot weather
             weather = 'hot'
             loc[2*one_third:] *= -1.4
@@ -52,16 +52,29 @@ def make_bucket_yields(N_buckets, N_turns, SNR, lag):
     return actual_bucket_yields, best_bucket, lagged_bucket_yields, weather, weather_onehot, \
         bucket_yield_mean, bucket_yield_sigma
 
+##this customized softmax activation function was adapted from 
+##https://github.com/keras-team/keras/blob/master/keras/activations.py
+#from keras import backend as K
+#def modified_softmax(x, axis=-1):
+#    delta_x = x - K.max(x, axis=axis, keepdims=True)
+#    e = K.exp(-delta_x)
+#    s = K.sum(e, axis=axis, keepdims=True)
+#    r = e/s
+#    rp = K.pow(r, 2)
+#    s = K.sum(rp, axis=axis, keepdims=True)
+#    return rp/s
+
 #this helper function builds a simple MLP classifier
-def mlp_classifier(N_inputs, N_middle_layer, N_outputs, dropout_fraction):
+def mlp_classifier(N_inputs, N_middle_layer, N_outputs, dropout_fraction, l1_arg=0.0):
     from keras.models import Sequential
     from keras.layers import Dense, Dropout
     model = Sequential()
     model.add(Dense(N_inputs, activation='elu', input_shape=(N_inputs,)))
     model.add(Dropout(dropout_fraction))
-    model.add(Dense(N_middle_layer, activation='elu'))
-    model.add(Dropout(dropout_fraction))
-    model.add(Dense(N_outputs, activation='softmax'))
+    #model.add(Dense(N_middle_layer, activation='elu'))
+    #model.add(Dropout(dropout_fraction))
+    from keras.regularizers import l1
+    model.add(Dense(N_outputs, activation='softmax', kernel_regularizer = l1(l1_arg)))
     model.compile(loss='categorical_crossentropy', optimizer='adam')
     return model
 
@@ -88,7 +101,12 @@ def compute_net_value(actual_bucket_yields, lagged_bucket_yields, weather, weath
             random_bucket = np.random.randint(0, high=N_buckets)
             bucket_occupation_fraction[idx, random_bucket] = 1.0
     if (strategy == 'top'):
-        bucket_occupation_fraction[:, -1] = 1.0
+        idx = (weather == 'nominal')
+        bucket_occupation_fraction[idx, -1] = 1.0
+        idx = (weather == 'stormy')
+        bucket_occupation_fraction[idx, one_third_buckets-1] = 1.0
+        idx = (weather == 'hot')
+        bucket_occupation_fraction[idx, two_third_buckets-1] = 1.0
     if (strategy == 'smart'):
         x = np.concatenate((lagged_bucket_yields, weather_onehot), axis=1)
         bucket_occupation_fraction = model.predict(x)

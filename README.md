@@ -93,7 +93,7 @@ This then suggests another game-play strategy,
 known as the  'top' strategy, which sends all bees
 to the topmost field when the weather is 'nominal', and sends all bees to field 1
 (which is the most productive field in this game's lower-one-third of all fields) when the weather
-is 'stormy', and field 3 (the most productive field in the game's middle-third) when
+is 'stormy', and field 3 (the most productive field in this game's middle-third) when
 the weather is 'hot'.
 
 Next, play numerous larger games of hivemind, these larger
@@ -108,7 +108,7 @@ that use the other strategies.
 
 Now train a simple MLP neural net classifier to recommend to the hivemind how it should
 deploy its bees every turn. Start by generating lots of training data by playing a single
-game lasting 10^5 turns, which generates a volume of game data that is 100x larger than
+game lasting 10^5 turns, this generates a volume of game data that is 100x larger than
 that shown above. The MLP model will be trained on features
 
     x = lagged_field_yields + weather_onehot

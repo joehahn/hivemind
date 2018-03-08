@@ -117,6 +117,6 @@ to predict the target variable
 which is field that was most productive each turn, onehot encoded. This game data is then
 split equally into train, test, and validation datasets. Keras + Tensforflow
 is then used to build a very simple Multi Layer Perceptron classifier,
-https://github.com/joehahn/hivemind/blob/master/hivemind.py#L93#L106:
+https://github.com/joehahn/hivemind/blob/master/hivemind.py#L93#L102:
 ![](figs/model.png)<br />
 

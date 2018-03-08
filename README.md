@@ -48,7 +48,7 @@ that has the highest yield.
 
 Of course the hivemind does not know in advance which field will have the highest yield,
 but it will know will which field was most productive during the previous turn,
-and this is the majority of the game data that the hivemind will be trained:
+and the following shows the majority of game data that the hivemind will be trained on:
 ![](figs/lagged_yields.png)<br />
 
 Field yields are also influenced by the weather, which can be nominal, stormy, or hot,

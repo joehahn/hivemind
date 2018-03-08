@@ -55,6 +55,12 @@ Field yields are also influenced by the weather, which can be nominal, stormy, o
 with yields being much more likely to be negative when the weather is stormy or hot:
 ![](figs/weather.png)<br />
 
-And ...
+Every turn each field's yield is randomly drawn from a normal distribution whose
+mean and standard-deviation both increase linearly with field number:
 ![](figs/field_parameters.png)<br />
+So when the weather is 'nominal', the higher-numbered fields are more productive
+since their mean yield is higher. But higher-numbered fields are also have noisier yields
+since their standard-deviation is also higher, in fact all fields' yields have a 
+signal/noise ratio of about 1.
+
 

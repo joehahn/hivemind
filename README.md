@@ -25,6 +25,7 @@ Anaconda python 2.7 plus additional libraries via:
     ~/miniconda2/bin/conda install -y jupyter
     ~/miniconda2/bin/conda install -y keras
     ~/miniconda2/bin/conda install -y seaborn
+    ~/miniconda2/bin/conda install -y scikit-learn
 
 ### Execute:
 
@@ -32,4 +33,13 @@ Start Jupyter notebook via
 
     jupyter notebook
 
-and load the hivemind.ipynb notebook > Run.
+and load the hivemind.ipynb notebook then click Kernel > Run All
+
+### Results:
+
+Hivemind is a turn-based game, each turn the hivemind chooses which fields that it will
+direct its numerous bees.
+
+![](figs/yields.png)<br />
+
+Then...

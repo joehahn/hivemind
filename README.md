@@ -6,8 +6,8 @@ jmh.datasciences@gmail.com,<br />
 git branch=master
 
 ### Summary:
-Train the hivemind, which is a very simple neural net, to send its bees to the more rewarding
-fields and to avoid the less productive fields.
+Train the hivemind, which is a very simple neural net, to send its bees towards the more
+productive fields and to avoid less rewarding fields.
 
 ### Setup:
 

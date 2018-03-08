@@ -105,6 +105,18 @@ that use the other strategies.
 
 Now lets train a simple MLP neural net classifier to recommend to the hivemind how it should
 deploy its bees every turn. Start by generating lots of training data ie play a single
-game that lasts 10^5 turns, that generates a volume of game data that is 100x larger than
-that shown just above.
+game lasting 10^5 turns, that generates a volume of game data 100x larger than
+that shown above. The MLP model will be trained on features
+
+    x = lagged_field_yields + weather_onehot
+
+to predict the target variable
+
+    y = best_field
+
+which is field that was most productive each turn, onehot encoded. This game data is then
+split equally into train, test, and validation datasets. Keras + Tensforflow
+is then used to build a very simple Multi Layer Perceptron classifier,
+https://github.com/joehahn/hivemind/blob/master/hivemind.py#L93#L106:
+![](figs/model.png)<br />
 

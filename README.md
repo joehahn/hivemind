@@ -148,7 +148,7 @@ is used, and the gold curve shows that the trained MLP model did in fact
 learn to direct all bees to the most productive top_k=5 fields
 during turns having 'nominal' weather.
 
-Keep in mind that the most productive fields changes with weather,
+Also keep in mind that the most productive field changes with weather,
 and the following shows that the trained hivemind did indeed learn
 to send its bees to the top_k=5 of the lower-one-third fields when
 the weather is 'stormy' (blue curve), and to the top_k=5 members of the

@@ -35,7 +35,7 @@ Start Jupyter notebook via
 
 and load the hivemind.ipynb notebook then click Kernel > Run All
 
-### Results:
+### Generate game data:
 
 Hivemind is a turn-based game, each turn the hivemind chooses which fields that it will
 direct its numerous bees. To illustrate, play a tiny game using 4 fields and lasting 20 turns:
@@ -52,10 +52,10 @@ and this is the majority of the game data that the hivemind will be trained:
 ![](figs/lagged_yields.png)<br />
 
 Field yields are also influenced by the weather, which can be nominal, stormy, or hot,
-with yields being much more likely to be negative when the weather is stormy or hot:
+with yields being smaller or more negative when the weather is stormy or hot:
 ![](figs/weather.png)<br />
 
-Every turn each field's yield is randomly drawn from a normal distribution whose
+Every turn all fields' yields are randomly drawn from a normal distribution whose
 mean and standard-deviation both increase linearly with field number:
 ![](figs/field_parameters.png)<br />
 So when the weather is 'nominal', the higher-numbered fields are more productive

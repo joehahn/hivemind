@@ -92,7 +92,7 @@ yields are reduced across the game's upper two-thirds of fields when the weather
 This then suggests another game-play strategy,
 known as the  'top' strategy, which sends all bees
 to the topmost field when the weather is 'nominal', and sends all bees to field 1
-(the most productive field in the game's lower-one-third of all fields) when the weather
+(which is the most productive field in this game's lower-one-third of all fields) when the weather
 is 'stormy', and field 3 (the most productive field in the game's middle-third) when
 the weather is 'hot'.
 

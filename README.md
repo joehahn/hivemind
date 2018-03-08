@@ -48,7 +48,7 @@ having the highest yield.
 
 Of course the hivemind does not know in advance which field will have the highest yield,
 but it will know will which field was most productive during the previous turn,
-and this is the game data that the hivemind will be trained:
+and this is the majority of the game data that the hivemind will be trained:
 ![](figs/lagged_yields.png)<br />
 
 So...

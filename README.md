@@ -39,7 +39,6 @@ and load the hivemind.ipynb notebook then click Kernel > Run All
 
 Hivemind is a turn-based game, each turn the hivemind chooses which fields that it will
 direct its numerous bees. To illustrate, play a tiny game using 4 fields and lasting 20 turns:
-
 ![](figs/yields.png)<br />
 
 Each line in the above shows each of the 4 bucket's fractional yields for the first 9 turns.
@@ -48,8 +47,8 @@ positive or negative yields, while the 4 rightmost values is a onehot-encode of 
 having the highest yield.
 
 Of course the hivemind does not know in advance which field will have the highest yield,
-but it will know will which field was most productive during the previous turn:
-
+but it will know will which field was most productive during the previous turn,
+and this is the game data that the hivemind will be trained:
 ![](figs/lagged_yields.png)<br />
 
 So...

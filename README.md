@@ -54,3 +54,7 @@ and this is the majority of the game data that the hivemind will be trained:
 Field yields are also influenced by the weather, which can be nominal, stormy, or hot,
 with yields being much more likely to be negative when the weather is stormy or hot:
 ![](figs/weather.png)<br />
+
+And ...
+![](figs/field_parameters.png)<br />
+

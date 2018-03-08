@@ -42,4 +42,14 @@ direct its numerous bees. To illustrate, play a tiny game using 4 fields and las
 
 ![](figs/yields.png)<br />
 
-Then...
+Each line in the above shows each of the 4 bucket's fractional yields for the first 9 turns.
+The leftmost field zero always produces a zero yield while the other fields produce
+positive or negative yields, while the 4 rightmost values is a onehot-encode of the field
+having the highest yield.
+
+Of course the hivemind does not know in advance which field will have the highest yield,
+but it will know will which field was most productive during the previous turn:
+
+![](figs/lagged_yields.png)<br />
+
+So...

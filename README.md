@@ -74,7 +74,16 @@ And when the 'high' strategy is used, all bees are sent to the uppermost third o
 these fields are the most productive though they are also the noisiest. At each
 turn we also compute the hive's net_value, which grows as these bees gather pollen from
 their respective fields and return to the hive; that net_value is simply the product of
-1+ each field's fractional yield times fraction of bees sent to each field
+1+ each field's fractional yield times fraction of bees sent to each field. The following
+table shows after turn zero is completed, the hive's 
+net value = (1+0.002406)*0.5 + (1+0.013708)*0.5 = 1.008057 when the 'high' strategy
+is played, which sends 50% of all bees to field number 4 (prob4=0.5 tells us that 50%
+of the hive's bees were sent to field 4) and 50% to field number 5 (ie prob5=0.5).
+And when turn 1 completes, the hive then accrues a net value of 1.007119, and the table
+below shows that the hive's compound_value=1.008057*1.007119 = 1.015233, with
+compound-scoring being used to illustrate how visits by bees at the more productive fields
+tends to strengthen the hive which in turn spawns greater number of healthier bees.
+
 ![](figs/high.png)<br />
 
 

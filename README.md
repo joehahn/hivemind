@@ -76,7 +76,7 @@ turn we also compute the hive's net_value, which grows as these bees gather poll
 their respective fields and return to the hive; that net_value is simply the product of
 1+ each field's fractional yield times fraction of bees sent to each field. The following
 table shows after turn zero is completed, the hive's 
-net value = (1+0.002406)*0.5 + (1+0.013708)*0.5 = 1.008057 when the 'high' strategy
+net value = (1+0.002406)\*0.5 + (1+0.013708)\*0.5 = 1.008057 when the 'high' strategy
 is played, which sends 50% of all bees to field number 4 (prob4=0.5 tells us that 50%
 of the hive's bees were sent to field 4) and 50% to field number 5 (ie prob5=0.5).
 And when turn 1 completes, the hive then accrues a net value of 1.007119, and the table

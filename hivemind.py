@@ -76,7 +76,7 @@ def make_bucket_yields(N_buckets, N_turns, SNR, lag):
 #    shaped_out = tf.reshape(tf.stack(out), in_shape)
 #    return shaped_out 
     
-##customized softmax so that only top_k values are nonzero
+##customized softmax so that only top_k values are nonzero...is wrong
 #def masked_softmax(x, axis=-1):
 #    delta_x = x - K.max(x, axis=axis, keepdims=True)
 #    softmax = K.exp(delta_x)
@@ -91,16 +91,12 @@ def make_bucket_yields(N_buckets, N_turns, SNR, lag):
 #    return softmax_masked
        
 #this helper function builds a simple MLP classifier
-def mlp_classifier(N_inputs, N_middle_layer, N_outputs, dropout_fraction):
+def mlp_classifier(N_inputs, N_outputs, dropout_fraction):
     from keras.models import Sequential
     from keras.layers import Dense, Dropout
     model = Sequential()
     model.add(Dense(N_inputs, activation='elu', input_shape=(N_inputs,)))
     model.add(Dropout(dropout_fraction))
-    #model.add(Dense(N_middle_layer, activation='elu'))
-    #model.add(Dropout(dropout_fraction))
-    #from keras import regularizers
-    #model.add(Dense(N_outputs, activation='softmax', activity_regularizer=modified_l1_regularizer))
     model.add(Dense(N_outputs, activation='softmax'))
     model.compile(loss='categorical_crossentropy', optimizer='adam')
     return model

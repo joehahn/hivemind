@@ -149,7 +149,7 @@ and the following shows that the trained hivemind moves did indeed learn
 to send its bees to the top_k=5 of the lower-one-third fields when
 the weather is 'stormy' (blue curve), and to the top_k=5 members of the
 middle-one-third of fields when the weather is 'hot' (red curve):
-![](figs/field_occupation.png)<br />
+![](figs/smart_top_weather.png)<br />
 
 ### Findings:
 

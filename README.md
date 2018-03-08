@@ -119,4 +119,8 @@ split equally into train, test, and validation datasets. Keras + Tensforflow
 is then used to build a very simple Multi Layer Perceptron classifier,
 https://github.com/joehahn/hivemind/blob/master/hivemind.py#L93#L102:
 ![](figs/model.png)<br />
+The model is then trained, and the following plot of the training and validation loss
+indicates that the trained model does not suffer and over- or under-fitting:
+![](figs/loss.png)<br />
+
 

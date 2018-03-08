@@ -56,7 +56,7 @@ Field yields are also influenced by the weather, which can be 'nominal', 'stormy
 with yields being smaller or more negative when the weather is stormy or hot:
 ![](figs/weather.png)<br />
 
-Every turn all fields' yields are randomly drawn from a normal distribution whose
+Every turn, all fields' yields are randomly drawn from a normal distribution whose
 mean and standard-deviation both increase linearly with field number:
 ![](figs/field_parameters.png)<br />
 So when the weather is 'nominal', the higher-numbered fields are more productive
@@ -68,13 +68,14 @@ The purpose of this demo is to train a neural net to advise the hivemind to dire
 its bees towards the most productive fields. But before we do that, lets pre-program
 the hivemind to follow 4 different human-generated strategies. The most conservative
 strategy is the 'low' strategy which directs all bees to the lowest one-third of all
-fields, these fields have low yields and the least noise. Also there is the 'middle'
+fields, these fields have low yields and the least noise. And there is also the 'middle'
 strategy which directs bees towards random selections from the middle third of all fields.
 And when the 'high' strategy is used, all bees are sent to the uppermost third of fields;
 these fields are the most productive though they are also the noisiest. At each
-turn we also compute the net_value that is generated when these bes gather pollen from
+turn we also compute the hive's net_value, which grows as these bees gather pollen from
 their respective fields and return to the hive; that net_value is simply the product of
-1+ each field's fractional yield X fraction of bees sent that
+1+ each field's fractional yield times fraction of bees sent to each field
+![](figs/high.png)<br />
 
 
 , which does depend on the weather because

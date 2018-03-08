@@ -69,8 +69,9 @@ The purpose of this demo is to train a neural net to advise the hivemind to dire
 its bees towards the most productive fields. But before we do that, lets pre-program
 the hivemind to follow 4 different human-generated strategies. The most conservative
 strategy is the 'low' strategy which directs all bees to the lowest one-third of all
-fields, these fields have low yields and the least noise. And there is also the 'middle'
-strategy which directs bees towards random selections from the middle third of all fields.
+fields, these fields have low yields, the least noise, and they are unaffected by the weather.
+And there is also the 'middle' strategy which directs bees towards random selections
+from the middle third of all fields.
 And when the 'high' strategy is used, all bees are sent to the uppermost third of fields;
 these fields are the most productive though they are also the noisiest. At each
 turn we also compute the hive's net_value, which grows as these bees gather pollen from

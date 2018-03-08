@@ -45,7 +45,7 @@ To illustrate, play a tiny game using 4 fields lasting 20 turns:
 Each line in the above shows each of the 4 bucket's fractional yields for the first 10 turns.
 The leftmost column, which corresponds to field number zero,
 always generates a zero yield while the other fields produce
-positive or negative yields, while the 4 rightmost columns is the onehot-encode for the field
+positive or negative yields, while the 4 rightmost columns give the onehot-encode for the field
 having the highest yield each turn.
 
 Of course the hivemind does not know in advance which field will have the highest yield,

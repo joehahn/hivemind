@@ -41,10 +41,11 @@ Hivemind is a turn-based game, each turn the hivemind chooses which fields that 
 direct its numerous bees. To illustrate, play a tiny game using 4 fields lasting 20 turns:
 ![](figs/yields.png)<br />
 
-Each line in the above shows each of the 4 bucket's fractional yields for the first 9 turns.
-The leftmost field, number zero, always produces a zero yield while the other fields produce
-positive or negative yields, while the 4 rightmost values is the onehot-encode for the field
-that has the highest yield.
+Each line in the above shows each of the 4 bucket's fractional yields for the first 10 turns.
+The leftmost column, which corresponds to field number zero,
+always generates a zero yield while the other fields produce
+positive or negative yields, while the 4 rightmost columns is the onehot-encode for the field
+having the highest yield each turn.
 
 Of course the hivemind does not know in advance which field will have the highest yield,
 but it will know will which field was most productive during the previous turn,

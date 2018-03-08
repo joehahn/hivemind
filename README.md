@@ -123,4 +123,5 @@ The model is then trained, and the following plot of the training and validation
 indicates that the trained model does not suffer and over- or under-fitting:
 ![](figs/loss.png)<br />
 
+### Findings:
 

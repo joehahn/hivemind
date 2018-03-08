@@ -62,7 +62,7 @@ mean and standard-deviation both increase linearly with field number:
 ![](figs/field_parameters.png)<br />
 So when the weather is 'nominal', the higher-numbered fields are more productive
 since their mean yield is higher. But higher-numbered fields are also have noisier yields
-since their standard-deviation is also higher, in fact all fields' yields have a 
+since their standard-deviation is also higher, and in fact all fields' yields have a 
 signal/noise ratio of about 1.
 
 The purpose of this demo is to train a neural net to advise the hivemind to direct

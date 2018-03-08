@@ -37,8 +37,9 @@ and load the hivemind.ipynb notebook then click Kernel > Run All
 
 ### Generate game data:
 
-Hivemind is a turn-based game, each turn the hivemind chooses which fields that it will
-direct its numerous bees. To illustrate, play a tiny game using 4 fields lasting 20 turns:
+Hivemind is a turn-based game, and during each turn the hivemind must determine to which
+of the available fields that the hivemind will send its many bees to.
+To illustrate, play a tiny game using 4 fields lasting 20 turns:
 ![](figs/yields.png)<br />
 
 Each line in the above shows each of the 4 bucket's fractional yields for the first 10 turns.

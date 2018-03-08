@@ -52,7 +52,7 @@ but it will know will which field was most productive during the previous turn,
 and the following shows the majority of game data that the hivemind will be trained on:
 ![](figs/lagged_yields.png)<br />
 
-Field yields are also influenced by the weather, which can be nominal, stormy, or hot,
+Field yields are also influenced by the weather, which can be 'nominal', 'stormy', or 'hot',
 with yields being smaller or more negative when the weather is stormy or hot:
 ![](figs/weather.png)<br />
 

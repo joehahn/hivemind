@@ -138,7 +138,7 @@ the 'smart' strategy is almost as performant as the human-encoded 'top' strategy
 ![](figs/low_thru_smart_strategies.png)<br />
 
 How the hivemind distributes its bees across all fields is shown below,
-for each strategy during turns having 'nominal' weather:
+for each strategy during turns of 'nominal' weather:
 ![](figs/field_occupation.png)<br />
 so the blue curve shows that all bees occupy the lower-one-third of fields
 when the 'low' strategy is employed, the middle-one-third of fields

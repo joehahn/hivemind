@@ -63,4 +63,18 @@ since their mean yield is higher. But higher-numbered fields are also have noisi
 since their standard-deviation is also higher, in fact all fields' yields have a 
 signal/noise ratio of about 1.
 
+The purpose of this demo is to train a neural net to advise the hivemind to direct
+its bees towards the most productive fields. But before we do that, lets pre-program
+the hivemind to follow 4 different human-generated strategies. The most conservative
+strategy is the 'low' strategy which directs all bees to the lowest one-third of all
+fields, these fields have low yields and the least noise. Also there is the 'middle'
+strategy which directs bees towards random selections from the middle third of all fields.
+And when the 'high' strategy is used, all bees are sent to the uppermost third of fields;
+these fields are the most productive though they are also the noisiest. At each
+turn we also compute the net_value that is generated when these bes gather pollen from
+their respective fields and return to the hive; that net_value is simply the product of
+1+ each field's fractional yield X fraction of bees sent that
 
+
+, which does depend on the weather because
+the upper-third of all fields tend to have

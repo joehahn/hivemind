@@ -1,7 +1,7 @@
 # hivemind
 
 by Joe Hahn,<br />
-jmh.datasciences@gmail.com,<br />
+joe.hahn@jmh-datasciences.com,<br />
 7 March 2018<br />
 git branch=master
 
